@@ -21816,10 +21816,10 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { 'class': 'greeting' },
+        { className: 'greeting' },
         _react2.default.createElement(
           'p',
-          { 'class': 'greeting-text' },
+          { className: 'greeting-text' },
           'Hello World!'
         ),
         _react2.default.createElement(_SearchBar2.default, null)
