@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './components/SearchBar.jsx'
+import App from './app.jsx'
+import Home from './containers/Home.jsx'
+import Login from './containers/Login.jsx'
+import Signup from './containers/Signup.jsx'
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="greeting">
-        <p className="greeting-text">Hello World!</p>
-        <SearchBar />
-      </div>
-    );
-  }
-}
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+const store = configureStore();
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="signup" component={Signup} />
+        <Route path="login" component={Login} />
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);

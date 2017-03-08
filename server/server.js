@@ -4,11 +4,17 @@ const express = require('express')
 
 expressApp =  function () {
   const app = express()
-  const indexPath = path.join(__dirname, 'index.html')
-  const publicPath = express.static(path.join(__dirname, 'dist'))
+  // const indexPath = path.join(__dirname, '/../dist/index.html')
+  // const publicPath = express.static(path.join(__dirname, '/../dist'))
 
-  app.use('/dist', publicPath)
-  app.get('/', function (_, res) { res.sendFile(indexPath) })
+  // app.use('/', publicPath)
+  // app.get('/*', function (_, res) { res.sendFile(indexPath) })
+  app.use(express.static(path.resolve(__dirname, '..', 'dist')));
+
+  // Always return the main index.html, so react-router render the route in the client
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));
+  });
 
   return app
 }
