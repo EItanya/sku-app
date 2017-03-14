@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import * as Actions from '../actions/actions.js'
 import { Field, reduxForm } from 'redux-form'
 import { Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
@@ -33,6 +34,10 @@ class Login extends React.Component {
     this.props.signInUser(values);
   };
 
+  handleNav(link) {
+    browserHistory.push(link);
+  }
+
   renderAuthError() {
     if (this.props.authenticationError) {
       return <div>{ this.props.authenticationError }</div>;
@@ -60,7 +65,8 @@ class Login extends React.Component {
             <Field name="password" type="password" component={FormTextField}  label="Password"/>
             <div>
             <RaisedButton className={"SubmitButton"} type='submit' action="submit" label={"Login"} />
-            <RaisedButton className={"SubmitButton"} label={"Register"} href="signup"/>
+            <RaisedButton className={"SubmitButton"} label={"Register"} onTouchTap={() => this.handleNav
+              ('signup')}/>
             </div>
           </form>
           <div>

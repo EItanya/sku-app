@@ -7,8 +7,18 @@ import SearchBar from './components/SearchBar.jsx';
 import Header from './components/Header.jsx'
 import BusinessList from './components/BusinessList.jsx'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+
+
 
 class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+    injectTapEventPlugin()
+  }
+
   render() {
     return (
       <MuiThemeProvider>

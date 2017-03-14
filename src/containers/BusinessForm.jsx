@@ -13,10 +13,6 @@ import FormTextField from '../components/FormTextField.jsx'
 const validate = values => {
   const errors = {};
 
-  if (!values.organization) {
-    errors.organization = "Please enter an organization"
-  }
-
   if (!values.email) {
     errors.email = "Please enter an email.";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -39,14 +35,14 @@ const validate = values => {
 };
 
 
-class Signup extends React.Component {
+class BusinessForm extends React.Component {
 
 
   handleFormSubmit = (values) => {
-    this.props.signUpUser(values)
+    this.props.addBusiness(values)
   };
 
-  renderAuthError() {
+  renderSaveError() {
     if (this.props.authenticationError) {
       return <div>{ this.props.authenticationError }</div>;
     }
@@ -56,25 +52,26 @@ class Signup extends React.Component {
   render() {
     return (
       <div style={{marginTop: "50px"}}>
-        <Paper className={"LoginPaper"} zDepth={1}>
+        <Paper className={"BusinessFormPaper"} zDepth={1}>
           <Card
             expandable={false}
             className={"LoginCard"}
             containerStyle={{marginTop:"50px"}}
           >
             <CardHeader
-              title="Login"
+              title="Add Business"
               className={"LoginCardHeader"}
             />
           </Card> 
-          {this.renderAuthError()} 
+          {this.renderSaveError()} 
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
-            <Field name="organization" type="text" component={FormTextField} label="Organization Name"/>
-            <Field name="email" type="email" component={FormTextField} label="Email"/>
-            <Field name="password" type="password" component={FormTextField}  label="Password"/>
-            <Field name="passwordConfirmation" type="password" component={FormTextField} label="Password Confirmation"/>
+            <Field name="name" type="name" component={FormTextField} label="Business Name"/>
+            <Field name="streetAddress" type="text" component={FormTextField}  label="Street Address"/>
+            <Field name="city" type="text" component={FormTextField} label="City"/>
+            <Field name="state" type="text" component={FormTextField} label="State"/>
+            <Field name="zip" type="number" component={FormTextField} label="Zip Code"/>
             <div>
-            <RaisedButton className={"SubmitButton"} type='submit' action="submit" label={"Register"} />
+            <RaisedButton className={"SubmitButton"} type='submit' action="submit" label={"Submit"} />
             </div>
           </form>
           <div>
@@ -94,7 +91,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, Actions)(reduxForm({
-  form: 'signup',
+  form: 'addBusiness',
   validate
-})(Signup));
+})(BusinessForm));
 
