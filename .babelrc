@@ -5,7 +5,7 @@
         "loose": true,
         "modules": false
       }
-    }], "react"
+    }], "react", "stage-0"
   ],
   "plugins": [
       "transform-object-rest-spread"
