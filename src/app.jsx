@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import * as Actions from './actions/actions.js';
 import SearchBar from './components/SearchBar.jsx';
 import Header from './components/Header.jsx'
-import BusinessList from './components/BusinessList.jsx'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 

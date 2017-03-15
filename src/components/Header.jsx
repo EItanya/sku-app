@@ -68,6 +68,7 @@ class Header extends React.Component {
           title="Sku-Yelp"
           showMenuIconButton={false}
           iconElementRight={this.props.authenticated ? this.NavMenu(): this.loginButton()}
+          onTitleTouchTap={() => this.handleNav('/')}
         />
       </header>
     )

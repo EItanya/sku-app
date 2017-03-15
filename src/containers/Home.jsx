@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import BusinessList from '../components/BusinessList.jsx'
 import SearchBar from '../components/SearchBar.jsx';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/actions.js';
@@ -16,8 +15,7 @@ class Home extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <BusinessList business={ this.props.businesses } />
-        <SearchBar onTermChange={ this.props.actions.requestSubreddits} />
+        <SearchBar/>
       </div>
     )
   }

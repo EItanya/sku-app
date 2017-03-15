@@ -28,6 +28,7 @@ ReactDOM.render(
         <Route path="profile" component={RequireAuth(Profile)}/>
         <Route path="search" component={RequireAuth(Search)} />
         <Route path="add" component={RequireAuth(BusinessForm)}/>
+        {/*<Route path="business" component={RequireAuth()}*/}
       </Route>
     </Router>
   </Provider>,
