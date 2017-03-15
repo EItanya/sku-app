@@ -8381,21 +8381,12 @@ var SearchBar = function (_React$Component) {
   }
 
   _createClass(SearchBar, [{
-    key: "onInputChange",
-    value: function onInputChange(term) {
-      this.props.onTermChange(term);
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         "div",
         { className: "search" },
-        _react2.default.createElement("input", { placeholder: "Enter text to search for gifs!", onChange: function onChange(event) {
-            return _this2.onInputChange(event.target.value);
-          } })
+        _react2.default.createElement("input", { placeholder: "Enter text to search for gifs!" })
       );
     }
   }]);
@@ -23395,7 +23386,6 @@ function addBusinessFirebase(details) {
     };
 
     _firebase2.default.database().ref('businesses/' + id).set(businessDetails).then(function (response) {
-      console.log("Success saving Business");
       dispatch((0, _business.addBusiness)(businessDetails));
       // browserHistory.push('business')
     }).catch(function (error) {
