@@ -13,7 +13,8 @@ export default function auth(state = initialState, action) {
         ...state,
         authenticated: true,
         error: null,
-        email: action.email
+        email: action.email,
+        uid: action.uid
       };
     case SIGN_OUT_USER:
       return {

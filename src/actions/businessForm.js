@@ -5,11 +5,12 @@ import { addBusiness } from './business'
 
 
 
-export const ADD_BUSINESS_ERROR = 'ADD_BUSINESS_ERROR'
-export const ADD_BUSINESS_SUCCESS = 'ADD_BUSINESS_SUCCESS'
-// var database = Firebase.database()
+export const BUSINESS_FORM_ERROR = 'BUSINESS_FORM_ERROR'
+export const BUSINESS_FORM_SUCCESS = 'BUSINESS_FORM_SUCCESS'
+export const BUSINESS_FORM_RATING = 'BUSINESS_FORM_RATING'
 
-export function addBusinessFirebase(details) {
+
+export function addBusinessFirebase(details, userId, rating) {
   return function(dispatch) {
     var id = uuid.v4()
     var businessDetails = {
@@ -18,7 +19,13 @@ export function addBusinessFirebase(details) {
       name: details.name,
       streetAddress: details.streetAddress,
       state: details.state,
-      zip: details.zip
+      zip: details.zip,
+      dateAdded: new Date(),
+      addedBy: userId,
+      ratings: {}
+    }
+    if (rating) {
+      businessDetails.ratings[userId] = rating
     }
 
     Firebase.database().ref('businesses/' + id).set(businessDetails)
@@ -33,16 +40,24 @@ export function addBusinessFirebase(details) {
   }
 }
 
+
+export function addBusinessRating(rating) {
+  return {
+    type: BUSINESS_FORM_RATING,
+    rating
+  }
+}
+
 export function addBusinessError(error) {
   return {
-    type: ADD_BUSINESS_ERROR,
+    type: BUSINESS_FORM_ERROR,
     payload: error
   }
 }
 
 export function addBusinessSuccess(id) {
   return {
-    type: ADD_BUSINESS_SUCCESS,
+    type: BUSINESS_FORM_SUCCESS,
   }
 }
 

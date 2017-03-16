@@ -20,6 +20,7 @@ export * from './auth.js'
 export * from './businessForm.js'
 export * from './nav.js'
 export * from './business.js'
+export * from './businessSearch.js'
 
 export function requestSubreddits(term = null) {
   const data = request.get(`${API_URL}`)

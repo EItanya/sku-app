@@ -49,6 +49,5 @@ export default [
   "West Virginia", 
   "Wisconsin", 
   "Wyoming",
-
 ]
 

@@ -53,7 +53,7 @@ class Header extends React.Component {
         <MenuItem primaryText="Add Business" onTouchTap={() => this.handleNav('add')}/>
         <MenuItem primaryText="Search Businesses" onTouchTap={() => this.handleNav('search')}/>
         <Divider/>
-        <MenuItem primaryText="SignOut" onTouchTap={() => this.handleSignout()}/>
+        <MenuItem primaryText="Sign Out" onTouchTap={() => this.handleSignout()}/>
 
       </IconMenu>
     )

@@ -14,10 +14,10 @@ export function signUpUser(credentials) {
         //Code to update user in the DB Outside of Authentication
         Firebase.database().ref('users/' + response.uid).set({
           email: response.email,
-          organization: credentials.organization
+          organization: credentials.organization,
         })
         .then(res => {
-          dispatch(authUser(response.email));
+          dispatch(authUser(response));
           browserHistory.push('/profile');
         })
         .catch(error => {
@@ -36,8 +36,7 @@ export function signInUser(credentials) {
   return function(dispatch) {
     Firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
       .then(response => {
-        console.log(response)
-        dispatch(authUser(response.email));
+        dispatch(authUser(response));
         browserHistory.push('/profile');
       })
       .catch(error => {
@@ -50,7 +49,7 @@ export function verifyAuth() {
   return function (dispatch) {
     Firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        dispatch(authUser(user.email));
+        dispatch(authUser(user));
       } else {
         dispatch(signOutUser());
       }
@@ -69,10 +68,11 @@ export function signOutUser()
   }
 }
 
-export function authUser(email) {
+export function authUser(user) {
   return {
     type: AUTH_USER,
-    email
+    email: user.email,
+    uid: user.uid
   }
 }
 

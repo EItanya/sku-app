@@ -6,7 +6,7 @@ import Home from './containers/Home.jsx'
 import Login from './containers/Login.jsx'
 import Signup from './containers/Signup.jsx'
 import Search from './containers/Search.jsx'
-import BusinessForm from './containers/BusinessForm.jsx'
+import BusinessAdd from './containers/BusinessAdd.jsx'
 import RequireAuth from './containers/RequireAuth.jsx'
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
@@ -27,7 +27,7 @@ ReactDOM.render(
         <Route path="login" component={Login} />
         <Route path="profile" component={RequireAuth(Profile)}/>
         <Route path="search" component={RequireAuth(Search)} />
-        <Route path="add" component={RequireAuth(BusinessForm)}/>
+        <Route path="add" component={RequireAuth(BusinessAdd)}/>
         {/*<Route path="business" component={RequireAuth()}*/}
       </Route>
     </Router>

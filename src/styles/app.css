@@ -29,7 +29,36 @@
 
 
 .BusinessFormPaper {
+  max-width: 800px;
+  margin-top: 50px;
+  margin: 0 auto;
+}
+
+.PaperSearchBar {
+
+  width: 100%;
+}
+
+.SearchBar {
   margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
+}
+
+.LoadingDiv {
+  width: 80px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.OuterSearchBar {
+  padding: 15px 15px 15px 15px;
+}
+
+.BusinessSearchResults {
+  margin: 50px 50px 50px 50px;
+}
+
+.BusinessCard {
+  margin: 15px 15px 15px 15px
 }

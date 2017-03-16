@@ -6,6 +6,7 @@
     "express": "^4.15.0",
     "firebase": "^3.7.1",
     "material-ui": "^0.17.0",
+    "material-ui-rating": "^1.1.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-redux": "^5.0.3",
@@ -16,6 +17,7 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "superagent": "^3.5.0",
+    "underscore": "^1.8.3",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
