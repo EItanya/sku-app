@@ -8,7 +8,9 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import MenuItem from 'material-ui/MenuItem'
 import  Paper  from 'material-ui/Paper'
+import Snackbar from 'material-ui/Snackbar';
 import BusinessForm from '../components/BusinessForm.jsx'
+import WrappedMap from '../components/MapSearch.jsx'
 
 
 class BusinessAdd extends React.Component {
@@ -29,15 +31,19 @@ class BusinessAdd extends React.Component {
             />
           </Card> 
           <Tabs>
-            <Tab label="Yelp">
-              <div> Empty for now </div>
+            <Tab label="Map">
+              <WrappedMap/>
             </Tab>
             <Tab label="Manual">
               <BusinessForm/>
             </Tab>
           </Tabs>
         </Paper>
-              
+        <Snackbar
+          open={this.props.saveSuccess}
+          message="Business Saved"
+          autoHideDuration={3000}
+        />
       </div>
     )
   }
@@ -47,7 +53,8 @@ function mapStateToProps(state) {
   return {
     authenticationError: state.auth.error,
     userId: state.auth.uid,
-    rating: state.businessForm.rating
+    rating: state.businessForm.rating,
+    saveSuccess: state.businessForm.success
   }
 }
 

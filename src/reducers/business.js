@@ -2,11 +2,12 @@ import { ADD_BUSINESS } from '../actions/actions';
 
 const initialState =  {
   uid: null,
-  city: null,
-  name: null,
-  streetAddress: null,
-  state: null,
-  zip: null
+  city: "",
+  name: "",
+  streetAddress: "",
+  state: "",
+  zip: "",
+  
 };
 
 export default function businesses(state = initialState, action) {

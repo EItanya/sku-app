@@ -7,7 +7,20 @@ import Paper from 'material-ui/Paper'
 class Business extends React.Component {
   render() {
     return (
-      <div>This is a temp</div>
+      <div>
+        <Paper className={"BusinessFormPaper"} zDepth={1}>
+          <Card
+            expandable={false}
+            className={"LoginCard"}
+            containerStyle={{marginTop:"50px"}}
+          >
+            <CardHeader
+              title="Add Business"
+              className={"LoginCardHeader"}
+            />
+          </Card> 
+        </Paper>
+      </div>
     )
   }
 }

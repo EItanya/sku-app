@@ -62,3 +62,10 @@
 .BusinessCard {
   margin: 15px 15px 15px 15px
 }
+
+.GoogleMap {
+  height: 100%;
+  max-width: 800px;
+  width: 100%;
+  max-height: 500px;
+}

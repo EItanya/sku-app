@@ -14,6 +14,7 @@ const FormSelectField = ({input, label, type, meta : {touched, error}, children,
       type={type}
       errorText={touched && error}
       children={children}
+      maxHeight={300}
     />
   </div>
 )
